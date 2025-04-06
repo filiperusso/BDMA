@@ -35,14 +35,21 @@ bdm_project/
 
 ## Running the Project
 
-### 1. Clone the project
+With Docker Desktop open, follow the steps:
 
-### 2. Start the Containers
+### 1. Clone or download the project
+
+### 2. Open the project folder in the terminal and clean the environment
+```sh
+docker compose down -v
+```
+
+### 3. Start the Containers
 Run the following command to start the services:
 ```sh
-docker-compose up -d
+docker compose up -d
 ```
-This will launch:
+This will launch the container stack, which includes:
 - FastAPI for structured data ingestion
 - Spark for batch and streaming data processing
 
@@ -59,40 +66,41 @@ To execute tasks:
 ### 4. Checking Processed Data
 Once the pipeline runs successfully, the processed data will be available in the Delta Lake at `/data/delta/`
 ```sh
-ls -lh /data/delta/
+ls -lh ./data/delta
 ```
 
 ## Data Storage Structure
 ```
 /data/delta/
-├── profile_photos/            # Student profile photos (binary data)
-├── batch_logs/                # Processed batch log files
-├── streaming_logs/            # Streaming log data
-├── _checkpoints/              # Streaming checkpoints
-│   └── streaming/             # Streaming job metadata
-├── students/                  # Student data table
-├── courses/                   # Course data table
-├── assessments/               # Assessment data table
-├── studentVle/                # Student VLE interactions
-├── studentRegistration/       # Student registration records
-├── studentAssessment/         # Student assessment results
-├── student_course/            # Student-course relationships
-├── healthcare_dataset_updated/ # Health data
+├── profile_photos/                # Student profile photos (binary data)
+├── batch_logs/                    # Processed batch log files
+├── streaming_logs/                # Streaming log data
+├── _checkpoints/                  # Streaming checkpoints
+│   └── streaming/                 # Streaming job metadata
+├── students/                      # Student data table
+├── courses/                       # Course data table
+├── assessments/                   # Assessment data table
+├── studentVle/                    # Student VLE interactions
+├── studentRegistration/           # Student registration records
+├── studentAssessment/             # Student assessment results
+├── student_course/                # Student-course relationships
+├── healthcare_dataset_updated/    # Health data
 ├── students_mental_health_survey/ # Mental health data
-└── vle/                       # Virtual Learning Environment data
+└── vle/                           # Virtual Learning Environment data
 ```
 
 ## Stopping the Project
 To stop and remove all running containers:
 ```sh
-docker-compose down
+docker compose down -v
 ```
 
 
 ## Contributors
-- HanLing
-- Lucia 
-- Filipe
+- Filipe Albuquerque Ito Russo
+- HanLing Hu
+- Lucia Victoria Fernandez Sanchez 
+
 
 ---
 This project is part of the BDMA curriculum for BDM coursework.
