@@ -54,7 +54,7 @@ This will launch the container stack, which includes:
 - Spark for batch and streaming data processing
 
 ### 3. Running Airflow Tasks
-Once the containers are up, access the Airflow web UI:
+Once the containers are up, access the Airflow web UI. The first time it will require the usual admin admin for username and password.
 ```sh
 http://localhost:8080
 ```
